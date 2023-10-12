@@ -455,12 +455,12 @@ class netopiapayments extends WC_Payment_Gateway {
 						}
 				}else {
 					// echo $resultObj->message;
-					echo '<p><i style="color:red">Nu se poate redirecționa în pagina de plată.Asigura-te ca ai completat configurari in setarii!</i></p>
+					echo '<p><i style="color:red">Nu se poate redirectiona in pagina de plata. Asigura-te ca ai completat configurari in setari!</i></p>
 								 <p style="font-size:small">Ai in continuare probleme? Trimite-ne doua screenshot-uri la <a href="mailto:implementare@netopia.ro">implementare@netopia.ro</a>, unul cu setarile metodei de plata din adminul wordpress.</p>';
 				}
 			break;
 			default:
-				echo '<p><i style="color:red">'.__('Unexpected error!.', 'netopiapayments').__('Asigura-te ca ai completat configurari in setarii!', 'netopiapayments').'</i></p>';
+				echo '<p><i style="color:red">'.__('Unexpected error!', 'netopiapayments').__('Asigura-te ca ai completat configurari in setari!', 'netopiapayments').'</i></p>';
 				echo '<p><i style="color:red">'.__($resultObj->message, 'netopiapayments').'</i></p>';
 				echo '
 					<script type="text/javascript">
