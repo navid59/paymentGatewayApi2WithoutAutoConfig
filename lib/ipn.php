@@ -202,11 +202,7 @@ class IPN extends Request{
                 * Default IPN response, 
                 * will change if there is any problem
                 */
-                // $outputData = array(
-                //     'errorType'		=> self::ERROR_TYPE_NONE,
-                //     'errorCode' 	=> null,
-                //     'errorMessage'	=> ''
-                // );
+                
 
                 /**
                  * Decode the payload
@@ -237,8 +233,8 @@ class IPN extends Request{
                     /**
                      * payment was confirmed; deliver goods
                      */
-                    $outputData['errorType']	= self::ERROR_TYPE_NONE;
-                    $outputData['errorCode'] 	= 0;
+                    // $outputData['errorType']	= self::ERROR_TYPE_NONE;
+                    // $outputData['errorCode'] 	= 0;
                     $outputData['errorMessage']	= "payment was confirmed; deliver goods";
                 break;
                 case self::STATUS_CANCELED: // void
@@ -308,8 +304,8 @@ class IPN extends Request{
                     /**
                      * payment was confirmed; deliver goods
                      */
-                    $outputData['errorType']	= self::ERROR_TYPE_NONE;
-                    $outputData['errorCode']	= self::STATUS_CONFIRMED;
+                    // $outputData['errorType']	= self::ERROR_TYPE_NONE;
+                    // $outputData['errorCode']	= self::STATUS_CONFIRMED;
                     $outputData['errorMessage']	= "payment was confirmed";
                 break;
                 case self::STATUS_PENDING:

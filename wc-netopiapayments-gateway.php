@@ -644,13 +644,13 @@ class netopiapayments extends WC_Payment_Gateway {
 		/**
 		 * IPN Output
 		 */
-		$ipnOutputArr = array(
-			'errorType' => $ipnResponse['errorType'],
-			'errorCode' => $ipnResponse['errorCode'],
-			'errorMessage' => $ipnResponse['errorMessage']
-		);
-		// echo json_encode($ipnResponse);
-		echo json_encode($ipnOutputArr);
+		// $ipnOutputArr = array(
+		// 	'errorType' => $ipnResponse['errorType'],
+		// 	'errorCode' => $ipnResponse['errorCode'],
+		// 	'errorMessage' => $ipnResponse['errorMessage']
+		// );
+		echo json_encode($ipnResponse);
+		// echo json_encode($ipnOutputArr);
 		
 		die();
 	}
