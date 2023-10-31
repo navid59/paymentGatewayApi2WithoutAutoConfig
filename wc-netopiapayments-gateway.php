@@ -3,7 +3,6 @@
 // ini_set('display_startup_errors', 1);
 // error_reporting(E_ALL);
 
-include_once('lib/log.php');
 include_once('lib/request.php');
 include_once('lib/status.php');
 include_once('lib/refund.php');
@@ -45,22 +44,7 @@ class netopiapayments extends WC_Payment_Gateway {
 		add_action('init', array($this, 'checkNetopiapaymentsResponse'));
 		add_action( 'woocommerce_api_' . strtolower( get_class( $this ) ), array($this, 'checkNetopiapaymentsResponse' ) );
 
-		/**
-		 * Temp TEMP
-		 */
 		
-		if ( has_action( 'woocommerce_api_netopiapayments' ) ) {
-			// The add_action() call for 'wp_footer' is defined correctly.
-			// You can now add your custom code here.
-			// file_put_contents('/var/www/html/wpApi2/wp-content/plugins/netopia-payments-v2/logs/obj.log',
-			//  "checkNetopiapaymentsResponse is define correctlly\n" , FILE_APPEND | LOCK_EX);
-		} else {
-			// file_put_contents('/var/www/html/wpApi2/wp-content/plugins/netopia-payments-v2/logs/obj.log',
-			//  "checkNetopiapaymentsResponse is NOT define correctlly\n" , FILE_APPEND | LOCK_EX);
-			// file_put_contents('/var/www/html/wpApi2/wp-content/plugins/netopia-payments-v2/logs/obj.log',
-			// get_class( $this )."\n" , FILE_APPEND | LOCK_EX);
-		}
-
 		// Save settings
 		if ( is_admin() ) {
 			// Versions over 2.0
@@ -89,12 +73,6 @@ class netopiapayments extends WC_Payment_Gateway {
 	 * Get transaction status & return string 
 	 */
 	public function getNetopiaPaymentStatus_change_order_received_text( $str , $order) {
-
-		//LOG
-        // file_put_contents('/var/www/html/wpApi2/wp-content/plugins/netopia-payments-v2/logs/obj.log', "getNetopiaPaymentStatus_change_order_received_text is CALLED\n" , FILE_APPEND | LOCK_EX);
-        // file_put_contents('/var/www/html/wpApi2/wp-content/plugins/netopia-payments-v2/logs/obj.log', "Str is : ".strval($str)."\n" , FILE_APPEND | LOCK_EX);
-        // file_put_contents('/var/www/html/wpApi2/wp-content/plugins/netopia-payments-v2/logs/obj.log', "Order is ID: ".strval($order->ID)."\n" , FILE_APPEND | LOCK_EX);
-
 
 		/** Return defulte woo text - do nothing */
 		if ( !$order->ID )
@@ -477,15 +455,6 @@ class netopiapayments extends WC_Payment_Gateway {
 	* This is the IPN for new plugin
 	**/
 	function checkNetopiapaymentsResponse(){
-
-		//LOG
-        file_put_contents('/var/www/html/wpApi2/wp-content/plugins/netopia-payments-v2/logs/obj.log', "checkNetopiapaymentsResponse is CALLED\n" , FILE_APPEND | LOCK_EX);
-
-		// ini_set('display_errors', 1);
-		// ini_set('display_startup_errors', 1);
-		// error_reporting(E_ALL);
-
-		include_once('lib/log.php');
 		include_once('lib/ipn.php');
 
 		require_once 'vendor/autoload.php';

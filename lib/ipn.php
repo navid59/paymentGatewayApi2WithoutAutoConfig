@@ -64,10 +64,6 @@ class IPN extends Request{
      *  - a Json
      */
     public function verifyIPN() {
-
-        //LOG
-        // file_put_contents('/var/www/html/wpApi2/wp-content/plugins/netopia-payments-v2/logs/obj.log', "IPN is HINT\n" , FILE_APPEND | LOCK_EX);
-
         if (strcasecmp($_SERVER['REQUEST_METHOD'], 'POST') != 0){
             echo 'invalid request method for payment confirmation' . PHP_EOL;
             exit;
@@ -134,10 +130,6 @@ class IPN extends Request{
         * Get raw data
         */
         $HTTP_RAW_POST_DATA = file_get_contents('php://input');
-
-        //LOG
-        // file_put_contents('/var/www/html/wpApi2/wp-content/plugins/netopia-payments-v2/logs/obj.log', $HTTP_RAW_POST_DATA , FILE_APPEND | LOCK_EX);
-        // file_put_contents('/var/www/html/wpApi2/wp-content/plugins/netopia-payments-v2/logs/obj.log', "\n-----------------\n" , FILE_APPEND | LOCK_EX);
 
         /**
         * The name of the alg defined in header of JWT
@@ -453,9 +445,6 @@ class IPN extends Request{
             $outputData['errorMessage']	= $e->getMessage();
         }
 
-        //LOG
-        // file_put_contents('/var/www/html/wpApi2/wp-content/plugins/netopia-payments-v2/logs/obj.log', "--- IPN Response ---\n" , FILE_APPEND | LOCK_EX);
-        // file_put_contents('/var/www/html/wpApi2/wp-content/plugins/netopia-payments-v2/logs/obj.log', json_encode($outputData) , FILE_APPEND | LOCK_EX);
         return $outputData;
     }
 
